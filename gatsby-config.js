@@ -47,3 +47,29 @@ module.exports = {
     },
   ],
 }
+
+
+//References 
+/*
+
+for the footer icons
+https://preview.themeforest.net/item/jevelin-multipurpose-premium-responsive-wordpress-theme/full_screen_preview/14728833?clickid=yNOVmiyAExyJUdYwUx0Mo3EzUklUtuQn4QRwyU0&iradid=275988&iradtype=ONLINE_TRACKING_LINK&irgwc=1&irmptype=mediapartner&irpid=369282&mp_value1=&utm_campaign=af_impact_radius_369282&utm_medium=affiliate&utm_source=impact_radius
+
+for the clip-path
+https://envytheme.com/tf-demo/promedi/index.html
+
+nice contact info over the map and working hours
+http://medicare.bold-themes.com/clinic/
+
+more medical website templates
+https://colorlib.com/wp/html5-medical-website-templates/
+
+nice portfolio website template
+https://colorlib.com/preview/#martin
+
+
+
+
+
+
+*/
