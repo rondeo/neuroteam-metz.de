@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-
+import { Link } from "gatsby"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import Image from "../../images/PR1A4105.jpg"
 import { Button } from "../SharedComponents/Buttons"
@@ -10,6 +10,7 @@ const ServiceContainer = styled.div`
   margin-left: 50px;
   border: 1px solid #eeeeee;
   transition: all 0.5s;
+  margin: 20px;
   :hover {
     transform: translateY(-10px);
     box-shadow: 7px 5px 30px rgba(72, 73, 121, 0.15);
@@ -65,7 +66,9 @@ function Service({ service }) {
       <TextContent>
         <h3>{service.serviceName}</h3>
         <p>{documentToReactComponents(service.serviceDescription.json)}</p>
-        <Button>{service.buttonLabel}</Button>
+        <Link to={service.slug}>
+          <Button>{service.buttonLabel}</Button>
+        </Link>
       </TextContent>
     </ServiceContainer>
   )

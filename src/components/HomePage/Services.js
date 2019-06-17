@@ -1,7 +1,9 @@
 import React from "react"
+import styled from "styled-components"
 import { StaticQuery, graphql, useStaticQuery } from "gatsby"
 import Service from "./Service"
 import { FlexContainer } from "../SharedComponents/Containers"
+
 const getServices = graphql`
   {
     service: allContentfulService(filter: { node_locale: { eq: "de-DE" } }) {
