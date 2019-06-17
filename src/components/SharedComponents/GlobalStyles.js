@@ -9,7 +9,8 @@ const GlobalStyle = createGlobalStyle`
 @import url('https://fonts.googleapis.com/css?family=Bitter:400,700&display=swap'); 
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400i,700&display=swap&subset=latin-ext');
-@import "react-alice-carousel/lib/alice-carousel.scss";
+ 
+@import url('https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,700&display=swap');
 *,
 *::after, 
 *::before {
@@ -17,14 +18,13 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     outline: none;
     box-sizing: inherit;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
 }
 html {
   font-size: 62.5%;
 }
 body {
-    
-    font-family: 'Open Sans', sans-serif;
+  font-family: 'Yanone Kaffeesatz', sans-serif;
     font-weight: 400;
     font-size: 13px;
     line-height: 22px;
@@ -35,14 +35,7 @@ body {
     box-sizing: border-box;
    
 }
-.full-description,
-.menu-list,
-.details {
-  p {
-    font-family: 'Libre Baskerville', serif;
-  }
-  
-}
+ 
 a,
   a:focus,
   a:active {
@@ -57,7 +50,7 @@ a,
     text-transform: uppercase;
     font-weight: bold;
     color: #333333;
-    font-family: 'Libre Baskerville', serif;
+    
     
   }
   h1 {
@@ -70,16 +63,17 @@ a,
   }
   h2 {
     font-size: 20px;
-    font-family: 'Libre Baskerville', serif;
+    
   }
   h3 {
     font-size: 18px;
     color: #777777;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
   }
   h4 {
     font-size: 2rem;
     color: #777777;
-    font-family: 'Open Sans', sans-serif;
+    
     font-weight: normal;
     line-height: 2rem;
     text-transform: capitalize;
@@ -93,16 +87,10 @@ a,
     font-weight: normal;
     text-transform: capitalize;
     color: #6AAB35;
-    font-family: 'Libre Baskerville', serif;
+    
     
   }
-  button {
-    font-family: 'Libre Baskerville', serif;
-  }
- 
-  .alice-carousel__stage-item {
-    width: 400px;
-  }
+  
 `
 
 export default GlobalStyle

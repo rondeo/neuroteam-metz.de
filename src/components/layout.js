@@ -1,4 +1,3 @@
-
 import React from "react"
 import PropTypes from "prop-types"
 import { StaticQuery, graphql } from "gatsby"
@@ -20,14 +19,11 @@ const Layout = ({ children }) => (
     `}
     render={data => (
       <>
-      <GlobalStyles/>
+        <GlobalStyles />
         <Header siteTitle={data.site.siteMetadata.title} />
-         
-          <main>{children}</main>
-        <Footer/> 
-            
-          
-         
+
+        <main>{children}</main>
+        <Footer />
       </>
     )}
   />
