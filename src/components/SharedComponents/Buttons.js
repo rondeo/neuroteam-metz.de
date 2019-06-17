@@ -5,4 +5,5 @@ export const Button = styled.button`
   padding: 10px 20px;
   color: white;
   font-size: 1.2rem;
+  outline: none;
 `

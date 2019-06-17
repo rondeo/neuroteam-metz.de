@@ -3,6 +3,7 @@ import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import ImageBanner from "../components/SharedComponents/ImageBanner"
+import { FlexContainer } from "../components/SharedComponents/Containers"
 
 export default function BasicPageTemplate(props) {
   return (
@@ -12,11 +13,13 @@ export default function BasicPageTemplate(props) {
         background={props.data.contentfulBasicPage.image.fluid.src}
       />
 
-      <div>
-        {documentToReactComponents(
-          props.data.contentfulBasicPage.textContent.json
-        )}
-      </div>
+      <FlexContainer columns>
+        <div>
+          {documentToReactComponents(
+            props.data.contentfulBasicPage.textContent.json
+          )}
+        </div>
+      </FlexContainer>
     </Layout>
   )
 }

@@ -46,7 +46,6 @@ const TextContent = styled.div`
   align-items: center;
   padding: 20px;
   p {
-    color: black;
     text-align: center;
     font-size: 1.1rem;
     font-weight: normal;

@@ -33,6 +33,7 @@ body {
     background: ${setColor.mainWhite};
     text-shadow: none !important;
     box-sizing: border-box;
+   color: #3f5588;
    
 }
  
