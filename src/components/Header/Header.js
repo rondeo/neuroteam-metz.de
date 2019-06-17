@@ -1,9 +1,9 @@
-import React from 'react'
-
+import React from "react"
+import Logo from "./Logo"
 export default function Header() {
-    return (
-        <div>
-            <h1>This is the header</h1>
-        </div>
-    )
+  return (
+    <div>
+      <Logo />
+    </div>
+  )
 }
