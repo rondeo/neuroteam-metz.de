@@ -11,9 +11,34 @@ import { faCalendarAlt } from "@fortawesome/free-solid-svg-icons"
 
 const Container = styled.div`
   display: flex;
-
+  background-color: #3f5588;
+  color: #ffffff;
   justify-content: center;
   flex-wrap: wrap;
+  padding: 1.5rem;
+`
+
+const Flex = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  margin: 0 2rem;
+
+  h4 {
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  p {
+    margin-bottom: 10px;
+  }
+`
+
+const Icon = styled(FontAwesomeIcon)`
+  font-size: 1.5rem;
+  margin: 2rem;
+  margin-top: 0px;
 `
 
 const getFooterInfo = graphql`
@@ -43,52 +68,57 @@ function FooterInfo() {
   const data = useStaticQuery(getFooterInfo)
   return (
     <Container>
-      <div>
+      <Flex>
         <div>
-          <FontAwesomeIcon icon={faMapMarkedAlt} />
+          <Icon icon={faMapMarkedAlt} />
         </div>
         <h4>{data.contentfulFooterInfo.addressHeadline}</h4>
         <p>{data.contentfulFooterInfo.addressLine1}</p>
         <p>{data.contentfulFooterInfo.addressLine2}</p>
         <p>{data.contentfulFooterInfo.addressLine3}</p>
-      </div>
-      <div>
+      </Flex>
+
+      <Flex>
         <div>
-          <FontAwesomeIcon icon={faPhoneAlt} />
+          <Icon icon={faPhoneAlt} />
         </div>
         <h4>{data.contentfulFooterInfo.telefonHeadline}</h4>
         <p>{data.contentfulFooterInfo.telefonLine1}</p>
-      </div>
-      <div>
+      </Flex>
+
+      <Flex>
         <div>
-          <FontAwesomeIcon icon={faFax} />
+          <Icon icon={faFax} />
         </div>
         <h4>{data.contentfulFooterInfo.faxHeadline}</h4>
         <p>{data.contentfulFooterInfo.faxLine1}</p>
-      </div>
-      <div>
+      </Flex>
+
+      <Flex>
         <div>
-          <FontAwesomeIcon icon={faEnvelope} />
+          <Icon icon={faEnvelope} />
         </div>
         <h4>{data.contentfulFooterInfo.mailHeadline}</h4>
         <p>{data.contentfulFooterInfo.mailLine1}</p>
-      </div>
-      <div>
+      </Flex>
+
+      <Flex>
         <div>
-          <FontAwesomeIcon icon={faClock} />
+          <Icon icon={faClock} />
         </div>
         <h4>{data.contentfulFooterInfo.openningHoursHeadline}</h4>
         <p>{data.contentfulFooterInfo.openingHoursLine1}</p>
         <p>{data.contentfulFooterInfo.openingHoursLine2}</p>
         <p>{data.contentfulFooterInfo.openingHoursLine3}</p>
-      </div>
-      <div>
+      </Flex>
+
+      <Flex>
         <div>
-          <FontAwesomeIcon icon={faCalendarAlt} />
+          <Icon icon={faCalendarAlt} />
         </div>
         <h4>{data.contentfulFooterInfo.appointmentHeadline}</h4>
         <p>{data.contentfulFooterInfo.appointmentLine1}</p>
-      </div>
+      </Flex>
     </Container>
   )
 }
