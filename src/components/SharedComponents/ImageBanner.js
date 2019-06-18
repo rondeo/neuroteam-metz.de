@@ -7,10 +7,10 @@ const ImageContainer = styled.div`
   position: relative;
   display: flex;
   width: 100%;
-  height: 50rem;
+  height: 40rem;
   background: ${props => `url(${props.background}) no-repeat `};
-  background-size: contain;
-  resize: both;
+  background-size: cover;
+  background-position: center;
 `
 export default function ImageBanner(props) {
   return <ImageContainer background={props.background}></ImageContainer>

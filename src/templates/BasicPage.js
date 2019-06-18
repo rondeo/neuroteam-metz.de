@@ -1,9 +1,30 @@
 import React from "react"
+import styled from "styled-components"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import ImageBanner from "../components/SharedComponents/ImageBanner"
 import { FlexContainer } from "../components/SharedComponents/Containers"
+
+const TextContent = styled.div`
+  padding: 2rem;
+  h1 {
+    font-size: 3rem;
+  }
+
+  h2 {
+    font-size: 2.5rem;
+
+    margin: 2rem 0px;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+  }
+
+  p {
+  }
+`
 
 export default function BasicPageTemplate(props) {
   return (
@@ -14,11 +35,11 @@ export default function BasicPageTemplate(props) {
       />
 
       <FlexContainer columns>
-        <div>
+        <TextContent>
           {documentToReactComponents(
             props.data.contentfulBasicPage.textContent.json
           )}
-        </div>
+        </TextContent>
       </FlexContainer>
     </Layout>
   )
