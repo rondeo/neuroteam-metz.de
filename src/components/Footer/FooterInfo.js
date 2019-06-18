@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import { StaticQuery, graphql, useStaticQuery } from "gatsby"
+import { graphql, useStaticQuery } from "gatsby"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faMapMarkedAlt } from "@fortawesome/free-solid-svg-icons"
 import { faPhoneAlt } from "@fortawesome/free-solid-svg-icons"
@@ -16,29 +16,46 @@ const Container = styled.div`
   justify-content: center;
   flex-wrap: wrap;
   padding: 1.5rem;
+
+  h4 {
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    font-weight: normal;
+    text-align: left;
+  }
 `
 
 const Flex = styled.div`
   display: flex;
-  justify-content: center;
-  flex-direction: column;
-  text-align: center;
   margin: 0 2rem;
+  flex-direction: column;
 
-  h4 {
-    text-transform: uppercase;
-    margin-bottom: 10px;
+  div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   p {
-    margin-bottom: 10px;
+    margin-left: 1.5rem;
+    margin-top: -21px;
   }
 `
+const FlexRow = styled.div`
+  display: flex;
+  flex-direction: row;
 
+  div {
+    margin-left: 1rem;
+  }
+
+  .icon {
+    margin-top: 3rem;
+    font-size: 1.3rem;
+  }
+`
 const Icon = styled(FontAwesomeIcon)`
-  font-size: 1.5rem;
-  margin: 2rem;
-  margin-top: 0px;
+  font-size: 1rem;
 `
 
 const getFooterInfo = graphql`
@@ -47,13 +64,10 @@ const getFooterInfo = graphql`
       addressHeadline
       addressLine1
       addressLine2
-      addressLine3
-      telefonHeadline
+      contactHeadline
       telefonLine1
-      faxHeadline
+      email
       faxLine1
-      mailHeadline
-      mailLine1
       openningHoursHeadline
       openingHoursLine1
       openingHoursLine2
@@ -68,57 +82,66 @@ function FooterInfo() {
   const data = useStaticQuery(getFooterInfo)
   return (
     <Container>
-      <Flex>
+      <FlexRow>
         <div>
-          <Icon icon={faMapMarkedAlt} />
+          <Icon icon={faMapMarkedAlt} className="icon" />
         </div>
-        <h4>{data.contentfulFooterInfo.addressHeadline}</h4>
-        <p>{data.contentfulFooterInfo.addressLine1}</p>
-        <p>{data.contentfulFooterInfo.addressLine2}</p>
-        <p>{data.contentfulFooterInfo.addressLine3}</p>
-      </Flex>
 
-      <Flex>
         <div>
-          <Icon icon={faPhoneAlt} />
+          <h4>{data.contentfulFooterInfo.addressHeadline}</h4>
+          <p>{data.contentfulFooterInfo.addressLine1}</p>
+          <p>{data.contentfulFooterInfo.addressLine2}</p>
+          <p>{data.contentfulFooterInfo.addressLine3}</p>
         </div>
-        <h4>{data.contentfulFooterInfo.telefonHeadline}</h4>
-        <p>{data.contentfulFooterInfo.telefonLine1}</p>
-      </Flex>
+      </FlexRow>
 
-      <Flex>
-        <div>
-          <Icon icon={faFax} />
-        </div>
-        <h4>{data.contentfulFooterInfo.faxHeadline}</h4>
-        <p>{data.contentfulFooterInfo.faxLine1}</p>
-      </Flex>
+      <div>
+        <Flex>
+          <FlexRow>
+            <h4>{data.contentfulFooterInfo.contactHeadline}</h4>
+            <Icon icon={faPhoneAlt} />
+            <p>{data.contentfulFooterInfo.telefonLine1}</p>
+          </FlexRow>
+        </Flex>
 
-      <Flex>
-        <div>
-          <Icon icon={faEnvelope} />
-        </div>
-        <h4>{data.contentfulFooterInfo.mailHeadline}</h4>
-        <p>{data.contentfulFooterInfo.mailLine1}</p>
-      </Flex>
+        <Flex>
+          <FlexRow>
+            <Icon icon={faFax} />
+            <p>{data.contentfulFooterInfo.faxLine1}</p>
+          </FlexRow>
+        </Flex>
 
-      <Flex>
-        <div>
-          <Icon icon={faClock} />
-        </div>
-        <h4>{data.contentfulFooterInfo.openningHoursHeadline}</h4>
-        <p>{data.contentfulFooterInfo.openingHoursLine1}</p>
-        <p>{data.contentfulFooterInfo.openingHoursLine2}</p>
-        <p>{data.contentfulFooterInfo.openingHoursLine3}</p>
-      </Flex>
+        <Flex>
+          <FlexRow>
+            <Icon icon={faEnvelope} />
+            <p>{data.contentfulFooterInfo.email}</p>
+          </FlexRow>
+        </Flex>
+      </div>
 
-      <Flex>
+      <FlexRow>
         <div>
-          <Icon icon={faCalendarAlt} />
+          <Icon icon={faClock} className="icon" />
         </div>
-        <h4>{data.contentfulFooterInfo.appointmentHeadline}</h4>
-        <p>{data.contentfulFooterInfo.appointmentLine1}</p>
-      </Flex>
+
+        <div>
+          <h4>{data.contentfulFooterInfo.openningHoursHeadline}</h4>
+          <p>{data.contentfulFooterInfo.openingHoursLine1}</p>
+          <p>{data.contentfulFooterInfo.openingHoursLine2}</p>
+          <p>{data.contentfulFooterInfo.openingHoursLine3}</p>
+        </div>
+      </FlexRow>
+
+      <FlexRow>
+        <div>
+          <Icon icon={faCalendarAlt} className="icon" />
+        </div>
+
+        <div>
+          <h4>{data.contentfulFooterInfo.appointmentHeadline}</h4>
+          <p>{data.contentfulFooterInfo.appointmentLine1}</p>
+        </div>
+      </FlexRow>
     </Container>
   )
 }
