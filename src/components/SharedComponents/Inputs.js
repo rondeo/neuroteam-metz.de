@@ -11,7 +11,7 @@ export const BasicInput = styled.input.attrs(props => ({
   border-top-style: none;
   border-right-style: none;
   border-left-style: none;
-  border-bottom-width: 2px;
+  border-bottom-width: 1px;
   border-bottom-color: #ebedf2;
   background-color: transparent;
   font-size: 1.3rem;

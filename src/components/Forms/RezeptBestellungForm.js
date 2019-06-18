@@ -10,8 +10,18 @@ const Form = styled.form`
   width: 40rem;
   color: #313131;
   box-shadow: 7px 5px 30px rgba(72, 73, 121, 0.15);
-  padding: 3rem;
+  padding: 2rem;
   border-radius: 5px;
+
+  .help {
+    color: #313131;
+    font-size: 1rem;
+  }
+
+  h2 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
 `
 
 function RezeptBestellungForm(props) {
@@ -26,10 +36,11 @@ function RezeptBestellungForm(props) {
         <BasicInput placeholder={props.telefon} />
         <BasicInput placeholder={props.geburtsdatum} />
         <h2>{props.secondheadline}</h2>
-        <p>{props.secondparagraph}</p>
+
         <BasicInput placeholder={props.medikament} />
+        <p className="help">{props.secondparagraph}</p>
         <BasicInput placeholder={props.abholdatum} />
-        <p>{documentToReactComponents(props.checkboxtext)}</p>
+        <p className="help">{documentToReactComponents(props.checkboxtext)}</p>
         <Button>{props.buttontext}</Button>
       </Form>
     </FlexContainer>
