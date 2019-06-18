@@ -30,7 +30,6 @@ export default function BasicPageTemplate(props) {
   return (
     <Layout>
       <ImageBanner
-        image={props.data.contentfulBasicPage.image}
         background={props.data.contentfulBasicPage.image.fluid.src}
       />
 

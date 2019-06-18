@@ -1,7 +1,9 @@
 import React from "react"
 import styled from "styled-components"
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import { FlexContainer } from "../SharedComponents/Containers"
 import { BasicInput } from "../SharedComponents/Inputs"
+import { Button } from "../SharedComponents/Buttons"
 import { InputEmail } from "../SharedComponents/Inputs"
 
 const Form = styled.form`
@@ -12,15 +14,23 @@ const Form = styled.form`
   border-radius: 5px;
 `
 
-function RezeptBestellungForm() {
+function RezeptBestellungForm(props) {
   return (
     <FlexContainer>
       <Form>
-        <BasicInput placeholder="Name" />
-        <BasicInput placeholder="Vorname" />
-        <BasicInput type="email" placeholder="Email" />
-        <BasicInput placeholder="Telefon" />
-        <BasicInput placeholder="Geburtsdatum" />
+        <h1>{props.firstheadline}</h1>
+        <p>{props.firstparagraph}</p>
+        <BasicInput placeholder={props.name} />
+        <BasicInput placeholder={props.vorname} />
+        <BasicInput type="email" placeholder={props.email} />
+        <BasicInput placeholder={props.telefon} />
+        <BasicInput placeholder={props.geburtsdatum} />
+        <h2>{props.secondheadline}</h2>
+        <p>{props.secondparagraph}</p>
+        <BasicInput placeholder={props.medikament} />
+        <BasicInput placeholder={props.abholdatum} />
+        <p>{documentToReactComponents(props.checkboxtext)}</p>
+        <Button>{props.buttontext}</Button>
       </Form>
     </FlexContainer>
   )

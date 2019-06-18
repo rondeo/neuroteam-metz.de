@@ -1,7 +1,7 @@
 import React from "react"
 import Layout from "../components/layout"
 import TeamMembers from "../components/OurTeamPage/TeamMembers"
-import { StaticQuery, graphql, useStaticQuery } from "gatsby"
+import { graphql, useStaticQuery } from "gatsby"
 import HeaderContainer from "../components/SharedComponents/HeaderContainer"
 import { FlexContainer } from "../components/SharedComponents/Containers"
 const getOurPageContent = graphql`
