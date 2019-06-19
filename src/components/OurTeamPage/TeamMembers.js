@@ -5,6 +5,13 @@ import TeamMember from "./TeamMember"
 import { FlexContainer } from "../SharedComponents/Containers"
 // import splitEvery from "ramda/src/splitEvery"
 
+const Container = styled.div`
+  display: flex;
+  max-width: 1400px;
+  flex-wrap: wrap;
+  justify-content: center;
+`
+
 const getTeamMembers = graphql`
   {
     teammember: allContentfulTeamMember(
@@ -27,16 +34,16 @@ const getTeamMembers = graphql`
 
 function TeamMembers() {
   const data = useStaticQuery(getTeamMembers)
-  // {
-  //   splitEvery(3, data.teammember.edges).map(teammembers => {
-  //     return (
-  //       <FlexContainer>
-  //         {teammembers.edges.map(({ node: teammember }) => {
-  //           return <TeamMember key={teammember.id} teammember={teammember} />
-  //         })}
-  //       </FlexContainer>
-  //     )
-  //   })
-  // }
+
+  return (
+    <FlexContainer>
+      <Container>
+        {data.teammember.edges.map(({ node: teammember }) => {
+          return <TeamMember key={teammember.id} teammember={teammember} />
+        })}
+      </Container>
+    </FlexContainer>
+  )
 }
+
 export default TeamMembers
