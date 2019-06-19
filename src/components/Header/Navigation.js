@@ -10,58 +10,32 @@ const getNavigationLink = graphql`
         node {
           navigationLink {
             ... on ContentfulNavigationItem {
+              id
               label
               link {
                 ... on Node {
                   ... on ContentfulBasicPage {
                     slug
+                    title
                   }
                   ... on ContentfulContactPage {
+                    title
                     slug
                   }
                   ... on ContentfulOurTeamPage {
+                    title
                     slug
                   }
                   ... on ContentfulArzteTherapeutenPage {
+                    title
                     slug
                   }
                   ... on ContentfulOnlineRezeptbestellungPage {
+                    title
                     slug
                   }
                 }
               }
-            }
-          }
-        }
-      }
-    }
-    navigationitem: allContentfulNavigationItem {
-      edges {
-        node {
-          id
-          label
-          link {
-            ... on Node {
-              ... on ContentfulContactPage {
-                slug
-                mainHeading
-              }
-            }
-            ... on ContentfulBasicPage {
-              slug
-              pageTitle
-            }
-            ... on ContentfulArzteTherapeutenPage {
-              mainHeading
-              slug
-            }
-            ... on ContentfulOurTeamPage {
-              title
-              slug
-            }
-            ... on ContentfulOnlineRezeptbestellungPage {
-              title
-              slug
             }
           }
         }
@@ -73,7 +47,16 @@ const getNavigationLink = graphql`
 function Navigation() {
   const data = useStaticQuery(getNavigationLink)
   console.log(data)
-  return <div></div>
+  return data.navigationlink.edges[0].node.navigationLink.map(node => (
+    <ul>
+      {node.label}
+      {node.link.map(link => (
+        <Link to={link.slug}>
+          <li>{link.title}</li>
+        </Link>
+      ))}
+    </ul>
+  ))
 }
 
 export default Navigation
