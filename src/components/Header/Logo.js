@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import { StaticQuery, graphql, useStaticQuery } from "gatsby"
+import { graphql, useStaticQuery } from "gatsby"
 import { Link } from "gatsby"
 const styledLogo = styled.div`
   img {
