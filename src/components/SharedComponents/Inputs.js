@@ -3,6 +3,8 @@ import styled from "styled-components"
 export const BasicInput = styled.input.attrs(props => ({
   type: props.type || "text",
   placeholder: props.placeholder || "Please enter the required value",
+  name: props.name || "",
+  value: props.value || "",
 }))`
   height: 4.5rem;
   margin-bottom: 8px;
@@ -31,5 +33,6 @@ export const BasicInput = styled.input.attrs(props => ({
 
   &:focus {
     border-color: #3f5588;
+    border-bottom-width: 2px;
   }
 `
