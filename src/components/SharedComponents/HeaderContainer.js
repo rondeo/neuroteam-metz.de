@@ -7,8 +7,8 @@ const Header = styled.div`
   padding: 0 25px;
 
   h1 {
-    font-size: 5rem;
-    padding: 2rem;
+    font-size: 50px;
+    padding: 40px;
     font-weight: normal;
   }
 `

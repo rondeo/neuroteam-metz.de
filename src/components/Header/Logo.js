@@ -3,10 +3,7 @@ import styled from "styled-components"
 import { graphql, useStaticQuery } from "gatsby"
 import { Link } from "gatsby"
 const styledLogo = styled.div`
-  img {
-    height: 90px;
-    width: 150px;
-  }
+  
 `
 const getLogo = graphql`
   {
@@ -23,9 +20,11 @@ const getLogo = graphql`
 function Logo() {
   const data = useStaticQuery(getLogo)
   return (
+    <styledLogo>
     <Link to="/">
       <img src={data.contentfulLogo.logo.file.url}></img>
     </Link>
+    </styledLogo>
   )
 }
 

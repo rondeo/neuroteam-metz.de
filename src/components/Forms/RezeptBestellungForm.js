@@ -2,9 +2,9 @@ import React from "react"
 import styled from "styled-components"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import { FlexContainer } from "../SharedComponents/Containers"
-import { BasicInput } from "../SharedComponents/Inputs"
+import { BasicInput, TextArea } from "../SharedComponents/Inputs"
 import { Button } from "../SharedComponents/Buttons"
-import { InputEmail } from "../SharedComponents/Inputs"
+ 
 
 const Form = styled.form`
   width: 40rem;
@@ -37,11 +37,12 @@ function RezeptBestellungForm(props) {
         <BasicInput placeholder={props.geburtsdatum} />
         <h2>{props.secondheadline}</h2>
 
-        <BasicInput placeholder={props.medikament} />
+        <TextArea placeholder={props.medikament}/>
         <p className="help">{props.secondparagraph}</p>
         <BasicInput placeholder={props.abholdatum} />
         <p className="help">{documentToReactComponents(props.checkboxtext)}</p>
         <Button>{props.buttontext}</Button>
+      
       </Form>
     </FlexContainer>
   )

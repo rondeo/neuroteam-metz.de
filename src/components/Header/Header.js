@@ -7,7 +7,9 @@ export default function Header() {
   return (
     <FlexContainer>
       <Logo />
+      
       <Navigation />
+       
     </FlexContainer>
   )
 }
