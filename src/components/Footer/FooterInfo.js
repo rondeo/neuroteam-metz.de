@@ -2,7 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import { graphql, useStaticQuery } from "gatsby"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faMapMarkedAlt } from "@fortawesome/free-solid-svg-icons"
+import { faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons"
 import { faPhoneAlt } from "@fortawesome/free-solid-svg-icons"
 import { faFax } from "@fortawesome/free-solid-svg-icons"
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons"
@@ -18,10 +18,16 @@ const Container = styled.div`
   padding: 1.5rem;
 
   h4 {
-    text-transform: uppercase;
+    text-transform: capitalize;
     font-size: 1.5rem;
     font-weight: normal;
     text-align: left;
+    margin-bottom: 10px;
+  }
+  p{
+    font-size: 20px;
+    margin-bottom: 8px;
+    font-weight: normal;
   }
 `
 
@@ -39,6 +45,7 @@ const Flex = styled.div`
   p {
     margin-left: 1.5rem;
     margin-top: -21px;
+     
   }
 `
 const FlexRow = styled.div`
@@ -50,12 +57,13 @@ const FlexRow = styled.div`
   }
 
   .icon {
-    margin-top: 3rem;
-    font-size: 1.3rem;
+   margin-left: -20px;
+   margin-right: 10px;
   }
 `
 const Icon = styled(FontAwesomeIcon)`
   font-size: 1rem;
+  
 `
 
 const getFooterInfo = graphql`
@@ -64,6 +72,7 @@ const getFooterInfo = graphql`
       addressHeadline
       addressLine1
       addressLine2
+      addressLine3
       contactHeadline
       telefonLine1
       email
@@ -83,13 +92,13 @@ function FooterInfo() {
   return (
     <Container>
       <FlexRow>
-        <div>
-          <Icon icon={faMapMarkedAlt} className="icon" />
-        </div>
-
-        <div>
-          <h4>{data.contentfulFooterInfo.addressHeadline}</h4>
+       <div>
+        <h4>{data.contentfulFooterInfo.addressHeadline}</h4>
+          <FlexRow>
+        <Icon icon={faMapMarkerAlt }  className="icon"  />
+          
           <p>{data.contentfulFooterInfo.addressLine1}</p>
+          </FlexRow>
           <p>{data.contentfulFooterInfo.addressLine2}</p>
           <p>{data.contentfulFooterInfo.addressLine3}</p>
         </div>
@@ -119,14 +128,13 @@ function FooterInfo() {
         </Flex>
       </div>
 
-      <FlexRow>
+      <FlexRow>   
         <div>
-          <Icon icon={faClock} className="icon" />
-        </div>
-
-        <div>
-          <h4>{data.contentfulFooterInfo.openningHoursHeadline}</h4>
+        <h4>{data.contentfulFooterInfo.openningHoursHeadline}</h4>
+          <FlexRow>
+        <Icon icon={faClock} className="icon" />
           <p>{data.contentfulFooterInfo.openingHoursLine1}</p>
+          </FlexRow>
           <p>{data.contentfulFooterInfo.openingHoursLine2}</p>
           <p>{data.contentfulFooterInfo.openingHoursLine3}</p>
         </div>
@@ -134,12 +142,11 @@ function FooterInfo() {
 
       <FlexRow>
         <div>
-          <Icon icon={faCalendarAlt} className="icon" />
-        </div>
-
-        <div>
           <h4>{data.contentfulFooterInfo.appointmentHeadline}</h4>
+          <FlexRow>
+          <Icon icon={faCalendarAlt} className="icon" />
           <p>{data.contentfulFooterInfo.appointmentLine1}</p>
+          </FlexRow>
         </div>
       </FlexRow>
     </Container>

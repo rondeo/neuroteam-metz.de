@@ -19,7 +19,7 @@ function OurTeam() {
   return (
     <Layout>
       <HeaderContainer heading={data.contentfulOurTeamPage.mainHeading} />
-      <FlexContainer columns>
+      <FlexContainer columns center>
         <h1>{data.contentfulOurTeamPage.subheading}</h1>
         <p>{data.contentfulOurTeamPage.introParagraph}</p>
       </FlexContainer>

@@ -1,5 +1,11 @@
 import React from "react"
 import styled from "styled-components"
+import Img from "gatsby-image"
+
+const Image = styled(Img)`
+  width: 100%;
+  
+`
 
 const ImageContainer = styled.div`
   border-top: 6px solid #3f5588;
@@ -7,11 +13,11 @@ const ImageContainer = styled.div`
   position: relative;
   display: flex;
   width: 100%;
-  height: 40rem;
-  background: ${props => `url(${props.background}) no-repeat `};
+
+  /* background: ${props => `url(${props.background}) no-repeat `};
   background-size: cover;
-  background-position: center;
+  background-position: center; */
 `
 export default function ImageBanner(props) {
-  return <ImageContainer background={props.background}></ImageContainer>
+  return <ImageContainer>  <Image fluid={props.image.fluid} /></ImageContainer>
 }
